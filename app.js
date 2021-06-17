@@ -9,6 +9,10 @@ const mainRoutes = require("./routes/main");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+//Static Folder
+app.use(express.static("public"));
+
+//Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
 
 const PORT = process.env.PORT || 8000;

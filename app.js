@@ -8,6 +8,8 @@ const connectDB = require("./config/database");
 
 const mainRoutes = require("./routes/main");
 
+//Use .env file in config folder
+require("dotenv").config({ path: "./config/.env" });
 
 //Connect To Database
 connectDB();
@@ -31,8 +33,6 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
-
-
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {

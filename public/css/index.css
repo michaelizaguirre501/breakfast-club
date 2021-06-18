@@ -1,7 +1,7 @@
 .indexContainer {
-  margin-left: 0.5%;
   margin-top: 10%;
-  background: gray;
+  padding-bottom: 5%;
+  background-color: gray;
   opacity: 0.75;
 }
 
@@ -14,6 +14,16 @@ h1 {
 
 .intro {
   padding: 0, 2.5%, 0, 2.5%;
+}
+
+#breakfast-club-paragraph-text{
+  color: rgba(255, 166, 0, 0.715);
+  font-weight: bold;
+}
+
+#submit-btn, #login-page-signup-btn{
+  background-color: rgba(255, 166, 0, 0.715);
+  border: rgba(255, 166, 0, 0.715) ;
 }
 
 #homeButton {

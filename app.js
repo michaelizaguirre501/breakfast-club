@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const flash = require("express-flash");
 const path = require("path");
 const connectDB = require("./config/database");
 
@@ -11,6 +12,8 @@ const mainRoutes = require("./routes/main");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
+
+
 
 //Connect To Database
 connectDB();
@@ -45,6 +48,10 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
+
+//Use flash messages for errors, info, ect...
+app.use(flash());
+
 
 const PORT = process.env.PORT || 8000;
 

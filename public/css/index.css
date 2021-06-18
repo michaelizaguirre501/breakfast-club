@@ -1,0 +1,17 @@
+.indexContainer {
+margin-left: .50%;
+margin-top: 10%;
+background: gray;
+opacity: .75;
+}
+
+h1{
+  color: rgba(255, 166, 0, 0.715);
+  font-style: bold;
+  font-size: 2 rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.intro {
+  padding: 0, 2.5%, 0, 2.5%;
+}

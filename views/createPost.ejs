@@ -1,31 +1,24 @@
 <%- include('partials/header') -%>
+<div class="container">
+  <h2>New post</h2>
+</div>
 
-<h2>create posts</h2>
 
-<div class="container w-80">
-  <div class="mt-5 form-group">
-    <h2>Add a Post</h2>
+<div class="container w-auto">
+  <div class="container mt-5 form-group">
     <form action="/posts/newPost" enctype="multipart/form-data" method="POST">
-      <label for="name">Name</label>
-      <textarea
-        class="form-control"
-        type="text"
-        name="name"
-        id="name"
-        rows="1"
-      ></textarea>
-      <label for="desc">Description</label>
-      <textarea
-        class="form-control"
-        type="text"
-        name="desc"
-        id="desc"
-        rows="3"
-      ></textarea>
-
       <label for="imgUpload" class="form-label">Image</label>
       <input type="file" class="form-control" id="imageUpload" name="file" />
-      <button class="btn btn-primary mt-2" type="submit">Submit</button>
+      <label class="my-2 "for="caption">Caption</label>
+      <textarea
+        class="form-control"
+        name="desc"
+        id="caption"
+        maxlength="160"
+      ></textarea>
+
+      
+      <button id="submit-btn" class="btn btn-primary mt-2" type="submit">Submit</button>
     </form>
   </div>
 </div>

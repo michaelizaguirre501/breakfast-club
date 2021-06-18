@@ -1,27 +1,26 @@
 const mongoose = require("mongoose");
 
-const PostSchema = new mongoose.PostSchema({
-  caption: {
+const PostSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  desc: {
+    type: String,
+    required: true,
+  },
+  user: {
     type: String,
     required: true,
   },
   image: {
     type: String,
-    require: true,
+    required: false,
   },
-  
-  
-  
   cloudinaryId: {
     type: String,
-    require: true,
+    required: false,
   },
-  user: {
-    type:mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-})
+});
+
+module.exports = mongoose.model("Post", PostSchema);

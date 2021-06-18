@@ -1,9 +1,14 @@
 <%- include('partials/header') -%>
 <div class="container">
-  <h2>DASHBOARD</h2>
+  <h2>Feed</h2>
 
   <p>Hello <%=user.userName%></p>
   <span>What's for breakfast?</span>
+
+  <% for( let i = 0; i < posts.length; i++ ) { %>
+  <p><%=posts[i]%></p>
+
+  <% } %>
 </div>
 
 <%- include('partials/footer') -%>

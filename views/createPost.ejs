@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+
+<h2>create posts</h2>
+
+<div class="container w-80">
+  <div class="mt-5 form-group">
+    <h2>Add a Post</h2>
+    <form action="/posts/newPost" enctype="multipart/form-data" method="POST">
+      <label for="name">Name</label>
+      <textarea
+        class="form-control"
+        type="text"
+        name="name"
+        id="name"
+        rows="1"
+      ></textarea>
+      <label for="desc">Description</label>
+      <textarea
+        class="form-control"
+        type="text"
+        name="desc"
+        id="desc"
+        rows="3"
+      ></textarea>
+
+      <label for="imgUpload" class="form-label">Image</label>
+      <input type="file" class="form-control" id="imageUpload" name="file" />
+      <button class="btn btn-primary mt-2" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

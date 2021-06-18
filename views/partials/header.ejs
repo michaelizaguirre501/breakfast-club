@@ -27,15 +27,15 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid nav-pad">
-          <h1>Breakfast Club</h1>
+          <h1><a href="/feed" id="homeButton">Breakfast Club</a></h1>
           <% if (!user) { %>
           <div>
             <a href="/signup" class="btn btn-secondary btn-sm">Sign up</a>
             <a href="/login" class="btn btn-secondary btn-sm">Login</a>
           </div>
           <% }else{%>
-          <a href="/" class="btn btn-secondary btn-sm">New</a>
-          <a href="/" class="btn btn-secondary btn-sm">Likes</a>
+          <a href="/posts/createPost" class="btn btn-secondary btn-sm">New</a>
+          <a href="/posts/likedPosts" class="btn btn-secondary btn-sm">Likes</a>
           <% } %>
         </div>
       </nav>

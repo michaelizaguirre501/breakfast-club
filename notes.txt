@@ -14,3 +14,5 @@ Routes/controllers-
     find all posts liked by user
     LOG OUT
 
+Css Things-
+    login/signup && new post/ liked by user posts need to be closer together and to the right of the nav bar

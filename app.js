@@ -6,20 +6,18 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
 const path = require("path");
+const logger = require("morgan");
 const connectDB = require("./config/database");
-
 const mainRoutes = require("./routes/main");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
-
+// Passport config
+require("./config/passport")(passport);
 
 //Connect To Database
 connectDB();
-
-// Passport config
-require("./config/passport")(passport);
 
 //Using EJS for views
 app.set("views", path.join(__dirname, "views"));
@@ -32,12 +30,8 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-//Setup Routes For Which The Server Is Listening
-app.use("/", mainRoutes);
+//Logging
+app.use(logger("dev"));
 
 // Setup Sessions - stored in MongoDB
 app.use(
@@ -49,12 +43,30 @@ app.use(
   })
 );
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Use flash messages for errors, info, ect...
 app.use(flash());
 
+//Make logged in user object available to all templates
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
 
+//Make logged in user object available to all templates
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
+
+//Setup Routes For Which The Server Is Listening
+app.use("/", mainRoutes);
+
+//Server Running
 const PORT = process.env.PORT || 8000;
-
 app.listen(PORT, () => {
-  console.log(`server running on PORT ${PORT}`);
+  console.log(`Server is running on PORT ${PORT}`);
 });

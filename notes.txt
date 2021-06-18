@@ -1,0 +1,16 @@
+Post schema -
+    Image 
+    cloudinary shit
+    user who posted 
+    location
+    created at
+
+User schema-
+    needs a likes array
+
+
+Routes/controllers-
+    create post
+    find all posts liked by user
+    LOG OUT
+

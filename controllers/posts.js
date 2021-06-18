@@ -5,9 +5,8 @@ const Post = require("../models/Post");
 module.exports = {
   getFeed: async (req, res) => {
     try {
-      const posts = await Post.find().lean;
-      res.render("feed.ejs", { posts: posts });
-      console.log(posts);
+      const posts = await Post.find().lean();
+      res.render("feed.ejs", { posts });
     } catch (err) {
       console.log(err);
     }

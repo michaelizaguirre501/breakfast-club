@@ -32,7 +32,8 @@ module.exports = {
     }
   },
   likedPostsFeed: (req, res) => {
-    res.render("likedPosts.ejs");
+    const posts = await.Post.find()
+    res.render("likedPosts.ejs", posts);
   },
 
   likePost: async (req, res) => {

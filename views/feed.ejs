@@ -8,7 +8,7 @@
   <div class="container mx-auto">
     <% for( let i = 0; i < posts.length; i++ ) { %>
     <div class="mb-5" style="outline: 1px solid black">
-      <img src="<%=posts[i].image%>" alt="<%=posts[i].name%>" />
+      <img class="userImages" src="<%=posts[i].image%>" alt="<%=posts[i].name%>" />
       <p><%=posts[i].name%></p>
       <p>Created by:<%=posts[i].user%></p>
 
@@ -19,7 +19,7 @@
         method="POST"
       >
         <button class="btn btn-primary glyphicon glyphicon-fire" type="submit">
-          Not working like button
+          Like
         </button>
       </form>
     </div>

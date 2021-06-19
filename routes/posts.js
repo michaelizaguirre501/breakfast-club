@@ -17,4 +17,7 @@ router.post(
 
 router.get("/likedPosts", ensureAuth, postsController.likedPostsFeed);
 
+// setting up route for like button to add to user array
+router.put("/likePost/:id", postsController.likePost);
+
 module.exports = router;

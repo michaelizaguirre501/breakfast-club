@@ -11,7 +11,17 @@
       <img src="<%=posts[i].image%>" alt="<%=posts[i].name%>" />
       <p><%=posts[i].name%></p>
       <p>Created by:<%=posts[i].user%></p>
-      <button>This should add likes to user object array (likedPhotos)</button>
+
+      <!-- Like button feature form and button -->
+      <form
+        class="btn btn-secondary fa fa-heart col-1"
+        action="posts/likePost<%= posts._id %>?_method=PUT"
+        method="POST"
+      >
+        <button class="btn btn-primary glyphicon glyphicon-fire" type="submit">
+          Not working like button
+        </button>
+      </form>
     </div>
     <% } %>
   </div>

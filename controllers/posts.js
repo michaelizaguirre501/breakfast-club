@@ -34,4 +34,17 @@ module.exports = {
   likedPostsFeed: (req, res) => {
     res.render("likedPosts.ejs");
   },
+
+  likePost: async (req, res) => {
+    try {
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+
+        { $addToSet: { likedPhotos: req.params.id } }
+      );
+      res.redirect("back");
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

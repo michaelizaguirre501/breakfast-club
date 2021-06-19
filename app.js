@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const methodOverride = require("method-override");
 const flash = require("express-flash");
 const path = require("path");
 const logger = require("morgan");
@@ -33,6 +34,9 @@ app.use(express.json());
 
 //Logging
 app.use(logger("dev"));
+
+// To override methods
+app.use(methodOverride("_method"));
 
 // Setup Sessions - stored in MongoDB
 app.use(

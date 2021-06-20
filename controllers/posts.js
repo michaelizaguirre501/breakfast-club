@@ -6,7 +6,9 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().lean();
-      res.render("feed.ejs", { posts });
+      res.render("feed.ejs", {
+        posts
+      });
     } catch (err) {
       console.log(err);
     }
@@ -31,17 +33,22 @@ module.exports = {
       console.log(err);
     }
   },
-  likedPostsFeed: (req, res) => {
-    const posts = await.Post.find()
+  likedPostsFeed: async (req, res) => {
+    const posts = await Post.find()
     res.render("likedPosts.ejs", posts);
   },
 
   likePost: async (req, res) => {
     try {
-      await User.findOneAndUpdate(
-        { _id: req.user.id },
+      await User.findOneAndUpdate({
+          _id: req.user.id
+        },
 
-        { $addToSet: { likedPhotos: req.params.id } }
+        {
+          $addToSet: {
+            likedPhotos: req.params.id
+          }
+        }
       );
       res.redirect("back");
     } catch (err) {

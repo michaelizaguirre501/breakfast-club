@@ -7,7 +7,7 @@ module.exports = {
     try {
       const posts = await Post.find().lean();
       res.render("feed.ejs", {
-        posts
+        posts,
       });
     } catch (err) {
       console.log(err);
@@ -34,22 +34,28 @@ module.exports = {
     }
   },
   likedPostsFeed: async (req, res) => {
-    const posts = await Post.find()
+    const posts = await Post.find();
     res.render("likedPosts.ejs", posts);
   },
 
   likePost: async (req, res) => {
     try {
-      await User.findOneAndUpdate({
-          _id: req.user.id
-        },
+      const user = await User.findOne({ _id: req.user.id });
+      if (user.likedPhotos.includes(req.params.id)) {
+        // return user.likedPhotos.splice(req.params.id); trying to make user likes toggleable
+      } else {
+        await User.findOneAndUpdate(
+          {
+            _id: req.user.id,
+          },
 
-        {
-          $addToSet: {
-            likedPhotos: req.params.id
+          {
+            $addToSet: {
+              likedPhotos: req.params.id,
+            },
           }
-        }
-      );
+        );
+      }
       res.redirect("back");
     } catch (err) {
       console.log(err);

@@ -37,7 +37,6 @@ module.exports = {
     const posts = await Post.find({
       likedBy: { $in: req.user.id },
     }).lean();
-
     res.render("likedPosts.ejs", { posts });
   },
 

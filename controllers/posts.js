@@ -42,7 +42,18 @@ module.exports = {
     try {
       const user = await User.findOne({ _id: req.user.id });
       if (user.likedPhotos.includes(req.params.id)) {
-        // return user.likedPhotos.splice(req.params.id); trying to make user likes toggleable
+        await User.findOneAndUpdate(
+          {
+            _id: req.user.id,
+          },
+
+          {
+            $pull: {
+              likedPhotos: req.params.id,
+            },
+          }
+        );
+        console.log("includes");
       } else {
         await User.findOneAndUpdate(
           {
@@ -55,7 +66,9 @@ module.exports = {
             },
           }
         );
+        console.log("no includes");
       }
+
       res.redirect("back");
     } catch (err) {
       console.log(err);

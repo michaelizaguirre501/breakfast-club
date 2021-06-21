@@ -22,4 +22,33 @@ Css Things-
 
 
 
-      
+           const user = await User.findOne({ _id: req.user.id });
+      if (user.likedPhotos.includes(req.params.id)) {
+        await User.findOneAndUpdate(
+          {
+            _id: req.user.id,
+          },
+
+          {
+            $pull: {
+              likedPhotos: req.params.id,
+            },
+          }
+        );
+        console.log("includes");
+      } else {
+        await User.findOneAndUpdate(
+          {
+            _id: req.user.id,
+          },
+
+          {
+            $addToSet: {
+              likedPhotos: req.params.id,
+            },
+          }
+        );
+        console.log("no includes");
+      }
+
+      res.redirect("back");

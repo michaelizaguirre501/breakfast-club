@@ -34,35 +34,38 @@ module.exports = {
     }
   },
   likedPostsFeed: async (req, res) => {
-    const posts = await Post.find();
-    res.render("likedPosts.ejs", posts);
+    const posts = await Post.find({
+      likedBy: { $in: req.user.id },
+    }).lean();
+
+    res.render("likedPosts.ejs", { posts });
   },
 
   likePost: async (req, res) => {
     try {
-      const user = await User.findOne({ _id: req.user.id });
-      if (user.likedPhotos.includes(req.params.id)) {
-        await User.findOneAndUpdate(
+      const post = await Post.findOne({ _id: req.params.id });
+      if (post.likedBy.includes(req.user.id)) {
+        await Post.findOneAndUpdate(
           {
-            _id: req.user.id,
+            _id: req.params.id,
           },
 
           {
             $pull: {
-              likedPhotos: req.params.id,
+              likedBy: req.user.id,
             },
           }
         );
         console.log("includes");
       } else {
-        await User.findOneAndUpdate(
+        await Post.findOneAndUpdate(
           {
-            _id: req.user.id,
+            _id: req.params.id,
           },
 
           {
             $addToSet: {
-              likedPhotos: req.params.id,
+              likedBy: req.user.id,
             },
           }
         );

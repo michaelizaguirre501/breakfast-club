@@ -6,7 +6,9 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().lean();
-      res.render("feed.ejs", { posts });
+      res.render("feed.ejs", {
+        posts,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -31,7 +33,47 @@ module.exports = {
       console.log(err);
     }
   },
-  likedPostsFeed: (req, res) => {
-    res.render("likedPosts.ejs");
+  likedPostsFeed: async (req, res) => {
+    const posts = await Post.find({
+      likedBy: { $in: req.user.id },
+    }).lean();
+    res.render("likedPosts.ejs", { posts });
+  },
+
+  likePost: async (req, res) => {
+    try {
+      const post = await Post.findOne({ _id: req.params.id });
+      if (post.likedBy.includes(req.user.id)) {
+        await Post.findOneAndUpdate(
+          {
+            _id: req.params.id,
+          },
+
+          {
+            $pull: {
+              likedBy: req.user.id,
+            },
+          }
+        );
+        console.log("includes");
+      } else {
+        await Post.findOneAndUpdate(
+          {
+            _id: req.params.id,
+          },
+
+          {
+            $addToSet: {
+              likedBy: req.user.id,
+            },
+          }
+        );
+        console.log("no includes");
+      }
+
+      res.redirect("back");
+    } catch (err) {
+      console.log(err);
+    }
   },
 };

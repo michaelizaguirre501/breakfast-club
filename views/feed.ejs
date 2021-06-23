@@ -8,10 +8,21 @@
   <div class="container mx-auto">
     <% for( let i = 0; i < posts.length; i++ ) { %>
     <div class="mb-5" style="outline: 1px solid black">
-      <img src="<%=posts[i].image%>" alt="<%=posts[i].name%>" />
+      <img
+        class="userImages"
+        src="<%=posts[i].image%>"
+        alt="<%=posts[i].name%>"
+      />
       <p><%=posts[i].name%></p>
       <p>Created by:<%=posts[i].user%></p>
-      <button>This should add likes to user object array (likedPhotos)</button>
+
+      <!-- Like button feature form and button -->
+      <form
+        action="/posts/likePost/<%= posts[i]._id %>?_method=PUT"
+        method="POST"
+      >
+        <button class="btn btn-primary" type="submit">Like</button>
+      </form>
     </div>
     <% } %>
   </div>

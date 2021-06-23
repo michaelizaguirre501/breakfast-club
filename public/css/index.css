@@ -33,3 +33,8 @@ h1 {
   font-family: "Anton", sans-serif;
   text-decoration: none;
 }
+
+/* Controls the width of user images on the feed. */
+.userImages {
+  width: 500px;
+}

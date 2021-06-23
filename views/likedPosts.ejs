@@ -1,5 +1,22 @@
 <%- include('partials/header') -%>
 
 <h1>Liked</h1>
+<p><strong>User Name</strong>: <%= user.userName %></p>
+<p><strong>Email</strong>: <%= user.email %></p>
+
+<% for(var i=0; i<posts.length; i++) {%>
+    <li class="col-6 justify-content-between mt-5">
+      <div class="#">
+      <a href="/post/<%= posts[i]._id%>">
+        <img class="img-fluid" src="<%= posts[i].image%>">
+      </a>
+    </div>
+    </li>
+  <% } %>
+  </ul>
+  <div class="row justify-content-center mt-5">
+    <a class="btn btn-primary" href="/feed">Return to Search</a>
+  </div>  
+</div>  
 
 <%- include('partials/footer') -%>

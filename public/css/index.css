@@ -34,6 +34,15 @@ h1 {
   text-decoration: none;
 }
 
+#return-to-search-btn {
+  background-color: rgba(255, 166, 0, 0.715);
+  border: rgba(255, 166, 0, 0.715);
+}
+
+ul li {
+  list-style: none;
+}
+
 /* Controls the width of user images on the feed. */
 .userImages {
   width: 500px;

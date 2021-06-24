@@ -26,9 +26,10 @@ module.exports = {
         user: req.user.userName,
         image: result.secure_url,
         cloudinaryId: result.public_id,
+        likedBy: [],
       });
       console.log(`Post ${req.body.name} created`);
-      res.redirect("back");
+      res.redirect("../feed");
     } catch (err) {
       console.log(err);
     }

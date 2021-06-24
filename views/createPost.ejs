@@ -1,17 +1,14 @@
 <%- include('partials/header') -%>
 
-
-
-
 <div class="container w-80">
   <h2 class="mt-4">Add New Breakfast Post</h2>
   <div class="mt-5 form-group">
     <form action="/posts/newPost" enctype="multipart/form-data" method="POST">
       <label for="imgUpload" class="form-label">Image</label>
       <input type="file" class="form-control" id="imageUpload" name="file" />
-      <label class="my-2 " for="name">Name</label>
-      <input type="text" class="form-control" />
-      <label class="my-2 "for="caption">Caption</label>
+      <label class="my-2" for="name">Name</label>
+      <input type="text" name="name" id="name" class="form-control" />
+      <label class="my-2" for="caption">Caption</label>
       <textarea
         class="form-control"
         name="desc"
@@ -19,8 +16,9 @@
         maxlength="160"
       ></textarea>
 
-      
-      <button id="submit-btn" class="btn btn-primary mt-2" type="submit">Submit</button>
+      <button id="submit-btn" class="btn btn-primary mt-2" type="submit">
+        Submit
+      </button>
     </form>
   </div>
 </div>

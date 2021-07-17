@@ -4,6 +4,15 @@
   background-color: gray;
   opacity: 0.75;
 }
+body {
+  background: rgb(186, 162, 162);
+  background: radial-gradient(
+    circle,
+    rgba(186, 162, 162, 1) 0%,
+    rgba(211, 181, 182, 1) 23%,
+    rgba(255, 243, 243, 1) 100%
+  );
+}
 
 h1 {
   color: rgba(255, 166, 0, 0.715);
@@ -16,14 +25,15 @@ h1 {
   padding: 0, 2.5%, 0, 2.5%;
 }
 
-#breakfast-club-paragraph-text{
+#breakfast-club-paragraph-text {
   color: rgba(255, 166, 0, 0.715);
   font-weight: bold;
 }
 
-#submit-btn, #login-page-signup-btn{
+#submit-btn,
+#login-page-signup-btn {
   background-color: rgba(255, 166, 0, 0.715);
-  border: rgba(255, 166, 0, 0.715) ;
+  border: rgba(255, 166, 0, 0.715);
 }
 
 #homeButton {

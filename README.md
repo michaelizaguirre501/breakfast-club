@@ -1,10 +1,10 @@
 # Breakfast Club
 
-Ever visited Mexico or thought about visiting? If you are like a lot of people (including my younger self), when you think of Mexico, Cancun or Tijuana may come to mind. Mexico has a rich and colorful history with various climates and terrains. The Pueblos Magicos are Magical towns located all over Mexico. I've created an API that will show you the true beauty of Mexico and hopefully encourage you to visit one (or many) of these Pueblos! I hope you enjoy and happy exploring!
+It is always morning to the Breakfast Club. Some say Breakfast is the most important meal of the day. Some say that dinner is. Regardless of what side of the table you sit at, we can all agree that we like food. Share a photo of what you had for breakfast with the world!.
 
 **Link to project:** https://breakfast-club-100devs.herokuapp.com/
 
-![app in action gif](/public/imgs/Pueblos.gif)
+![app in action gif](/public/css/breakfastClub.gif)
 
 
 
@@ -21,6 +21,3 @@ Ever visited Mexico or thought about visiting? If you are like a lot of people (
 
 
 ## Lessons Learned:
-
-
-

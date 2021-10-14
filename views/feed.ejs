@@ -1,31 +1,36 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="container mb-5">
-    <h2>Feed</h2>
+<div class="container d-flex flex-column">
+  <div class="container-fluid mb-5 border-bottom border-dark">
+    <h2 class="d-flex justify-content-center">Feed</h2>
 
-    <p>Good Morning <%=user.userName%>!</p>
-    <h4>What's for breakfast?</h4>
+    <p class="d-flex justify-content-center">Good Morning <%=user.userName%>!</p>
+    <h4 class="d-flex justify-content-center">What's for breakfast?</h4>
   </div>
 
 
-  <div class="container mx-auto">
+  <div class="container mx-auto d-flex flex-column feedContainer">
     <% for( let i = 0; i < posts.length; i++ ) { %>
-    <div class="mb-5">
+      <p class="createdByP d-flex justify-content-center" >Created by: <%=posts[i].user %> </p>
+      <div class="mb-5 d-flex justify-content-center">
+      
+        <!-- Like button feature form and button -->
+        <form class="mb-5 likeButton"
+        action="/posts/likePost/<%= posts[i]._id %>?_method=PUT"
+        method="POST"
+      >
+        <button class="btn btn-outline-primary likeButton" type="submit">Like</button>
+      </form>
+    </div>
+    <div class="mb-5 d-flex justify-content-center border-bottom border-dark">
       <img
         class="userImages"
         src="<%=posts[i].image%>"
         alt="<%=posts[i].name%>"
       />
      
-      <p>Created by:<%=posts[i].user%></p>
+     
 
-      <!-- Like button feature form and button -->
-      <form
-        action="/posts/likePost/<%= posts[i]._id %>?_method=PUT"
-        method="POST"
-      >
-        <button class="btn btn-primary" type="submit">Like</button>
-      </form>
+    
     </div>
     <% } %>
   </div>

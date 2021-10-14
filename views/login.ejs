@@ -32,6 +32,15 @@
           />
         </div>
         <button type="submit" id="submit-btn"class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary" id="test">Demo Mode</button>
+        <script>
+          document.getElementById("test").addEventListener("click", demoMode);
+          function demoMode() {
+            document.getElementById("exampleInputEmail1").value =
+              "test@testing.com";
+            document.getElementById("exampleInputPassword1").value = "123456789";
+          }
+        </script>
       </form>
 
       <a  id="login-page-signup-btn"class="btn btn-primary mt-3" href="signup"

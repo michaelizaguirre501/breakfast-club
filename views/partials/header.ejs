@@ -21,7 +21,7 @@
     />
 
     <link rel="stylesheet" href="/css/index.css" />
-    <link rel="icon" type="image/ico"  href="/breakfast-club/public/css/images/favicon.ico"/>
+    <link rel="shortcut icon" sizes="32x32" type="image/png"  href="./public/css/images/favicon.ico?"/>
   </head>
 
   <body>
@@ -33,17 +33,8 @@
           <div>
             <a href="/signup" class="btn btn-secondary btn-sm">Sign up</a>
             <a href="/login" class="btn btn-secondary btn-sm">Login</a>
-            <a  href="/login" class="btn btn-secondary btn-sm" id="testbtn">Demo Mode</a>
-        <script>
-          document
-            .getElementById("testbtn")
-            .addEventListener("click", demoMode);
-          function demoMode() {
-            document.getElementById("exampleInputEmail1").value =
-              "test@testing.com";
-            document.getElementById("exampleInputPassword1").value = "12345678";
-          }
-        </script>
+            <a  href="/login" class="btn btn-secondary btn-sm" >Demo Mode</a>
+        
           </div>
           <% }else{%>
           <div>

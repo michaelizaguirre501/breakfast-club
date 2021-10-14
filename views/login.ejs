@@ -32,11 +32,9 @@
           />
         </div>
         <button type="submit" id="submit-btn"class="btn btn-primary">Submit</button>
-        <button  type="submit" class="btn btn-primary demo" id="testbtn">Demo Mode</button>
+        <button class="btn btn-primary" id="test">Demo Mode</button>
         <script>
-          document
-            .getElementsById("testbtn")
-            .addEventListener("click", demoMode);
+          document.getElementById("test").addEventListener("click", demoMode);
           function demoMode() {
             document.getElementById("exampleInputEmail1").value =
               "test@testing.com";

@@ -4,7 +4,7 @@ Ever visited Mexico or thought about visiting? If you are like a lot of people (
 
 **Link to project:** https://breakfast-club-100devs.herokuapp.com/
 
-![app in action gif](/public/imgs/Pueblos.gif)
+![app in action gif](/public/css/images/breakfastClub.gif)
 
 
 

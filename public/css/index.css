@@ -57,3 +57,12 @@ ul li {
 .userImages {
   width: 500px;
 }
+
+img {
+margin-bottom: 2.5%;
+
+}
+
+#createdByP{
+padding-left: 2.5%;
+}

@@ -16,6 +16,3 @@ This is a full-stack web app built with 3 other developers. We began by spinning
 
 
 
-
-
-
